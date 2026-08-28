@@ -20,11 +20,11 @@ from product import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/products/', views.product_list_api_view), 
-    path('api/v1/products/<int:id>/', views.product_datail_api_view), 
-    path('api/v1/categories/', views.category_list_api_view), 
-    path('api/v1/categories/<int:id>/', views.categiry_detail_api_view),
-    path('api/v1/reviews/', views.review_list_api_view), 
-    path('api/v1/reviews/<int:id>/', views.review_detail_api_view),
+    path('api/v1/products/', views.product_create_list_api_view), #Get - list, POST -> create
+    path('api/v1/products/<int:id>/', views.product_datail_api_view), #PUT, DELETE
+    path('api/v1/categories/', views.category_create_list_api_view), #GET, POST
+    path('api/v1/categories/<int:id>/', views.categiry_detail_api_view), #PUT, DELETE
+    path('api/v1/reviews/', views.review_create_list_api_view), #GET,  POST
+    path('api/v1/reviews/<int:id>/', views.review_detail_api_view), #PUT, DELETE
 
 ]

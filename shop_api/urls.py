@@ -15,16 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from product import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/products/', views.product_create_list_api_view), #Get - list, POST -> create
-    path('api/v1/products/<int:id>/', views.product_datail_api_view), #PUT, DELETE
-    path('api/v1/categories/', views.category_create_list_api_view), #GET, POST
-    path('api/v1/categories/<int:id>/', views.categiry_detail_api_view), #PUT, DELETE
-    path('api/v1/reviews/', views.review_create_list_api_view), #GET,  POST
-    path('api/v1/reviews/<int:id>/', views.review_detail_api_view), #PUT, DELETE
+    path('api/v1/product/', include('product.urls')), 
+    path('api/v1/users/', include('users.urls'))
+    # path('api/v1/products/', views.product_create_list_api_view), #Get - list, POST -> create
+    # path('api/v1/products/<int:id>/', views.product_datail_api_view), #PUT, DELETE
+    # path('api/v1/categories/', views.category_create_list_api_view), #GET, POST
+    # path('api/v1/categories/<int:id>/', views.categiry_detail_api_view), #PUT, DELETE
+    # path('api/v1/reviews/', views.review_create_list_api_view), #GET,  POST
+    # path('api/v1/reviews/<int:id>/', views.review_detail_api_view), #PUT, DELETE
 
 ]

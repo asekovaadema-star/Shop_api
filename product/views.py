@@ -144,6 +144,7 @@ def categiry_detail_api_view(request, id):
 @api_view(['GET', 'POST'])
 
 def review_create_list_api_view(request):
+    print(request.user)
     if request.method == 'GET':
         reviews = Review.objects.all()
         list_ = ReviewListSerializer(reviews, many = True).data

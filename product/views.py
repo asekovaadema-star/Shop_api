@@ -14,6 +14,38 @@ from .serializers import ( ProductListSerializer,
                           ReviewValidateSerializer, 
                           )
 from django.db import transaction
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.pagination import PageNumberPagination
+
+class ProductCreateAPIView(ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductListSerializer
+    pagination_class = PageNumberPagination
+
+class ProductDetailAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductDetailListSerializer
+    lookup_field = 'id'
+
+class CategoryCreateAPIView(ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategoryListSerializer
+    pagination_class = PageNumberPagination
+
+class CategoryDetailAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategoryDetailSerializer
+    lookup_field = 'id'
+
+class ReviewCreateAPIView(ListCreateAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewListSerializer
+    pagination_class = PageNumberPagination
+
+class ReviewDetailAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewDetailSerializer
+    lookup_field = 'id'
 
 @api_view(['GET', 'PUT', 'DELETE'])
 

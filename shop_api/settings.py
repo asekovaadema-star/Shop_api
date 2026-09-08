@@ -48,7 +48,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES' : [
         'rest_farmework.authentication.TokenAuthentication', 
         
-    ]
+    ], 
+    'PAGE_SIZE': 3
 }
 
 MIDDLEWARE = [
